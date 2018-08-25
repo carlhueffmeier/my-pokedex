@@ -1,0 +1,10 @@
+.poke-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 60px);
+  grid-gap: 5px;
+}
+
+.poke-grid__item {
+  height: 60px;
+}

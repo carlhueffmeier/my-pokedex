@@ -1,0 +1,5 @@
+<div *ngIf="pokelist" class="poke-grid">
+  <div *ngFor="let pokemon of pokelist" class="poke-grid__item">
+    <app-poke-sprite [pokemon]="pokemon"></app-poke-sprite>
+  </div>
+</div>

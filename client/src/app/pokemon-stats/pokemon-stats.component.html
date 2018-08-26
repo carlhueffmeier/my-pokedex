@@ -1,0 +1,9 @@
+<div class="stats" [ngStyle]="getStyles()">
+  <div *ngFor="let stat of getStats()" class="stats__row">
+    <span class="stats__key">{{stat[0]}}</span>
+    <span class="stats__value">{{stat[1].toString().padStart(3, '0')}}</span>
+    <div class="stats__bar">
+      <div class="stats__bar-fill" [ngStyle]="{'width': ((stat[1] / 300) * 100) + '%'}"></div>
+    </div>
+  </div>
+</div>

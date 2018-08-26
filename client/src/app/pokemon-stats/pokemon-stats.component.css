@@ -1,0 +1,29 @@
+.stats {
+  font-size: 0.8rem;
+}
+.stats__row {
+  display: grid;
+  grid-template-columns: 3rem 3rem auto;
+  align-items: center;
+  height: 1.5rem;
+}
+
+.stats__key {
+  font-weight: 500;
+}
+
+.stats__value {
+  color: var(--color-text-dark);
+}
+
+.stats__bar {
+  border-radius: 4px;
+  height: 8px;
+  background-color: #eee;
+}
+
+.stats__bar-fill {
+  border-radius: 4px;
+  height: 8px;
+  background-color: currentColor;
+}

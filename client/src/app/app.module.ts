@@ -9,9 +9,13 @@ import { AppRoutingModule } from './/app-routing.module';
 import { PokemonOverviewComponent } from './pokemon-overview/pokemon-overview.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { TabComponent } from './tab/tab.component';
+import { PokemonStatsComponent } from './pokemon-stats/pokemon-stats.component';
+import { SvgIconComponent } from './svg-icon/svg-icon.component';
 
 @NgModule({
-  declarations: [AppComponent, PokeGridComponent, PokeSpriteComponent, PokemonOverviewComponent, PokeListComponent, PokemonDetailsComponent],
+  declarations: [AppComponent, PokeGridComponent, PokeSpriteComponent, PokemonOverviewComponent, PokeListComponent, PokemonDetailsComponent, TabsComponent, TabComponent, PokemonStatsComponent, SvgIconComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

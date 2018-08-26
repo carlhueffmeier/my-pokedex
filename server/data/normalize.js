@@ -42,7 +42,10 @@ function createDescriptionDictionary(data) {
   return data.reduce(
     (target, entry) => ({
       ...target,
-      [entry.pkdx_id.toString().padStart(3, '0')]: entry.description
+      [entry.pkdx_id.toString().padStart(3, '0')]: entry.description.slice(
+        0,
+        entry.description.length / 2 - 1
+      )
     }),
     {}
   );

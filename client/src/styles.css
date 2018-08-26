@@ -19,6 +19,8 @@ body {
 
 /* Variables */
 :root {
+  /* Main UI colors */
+  --color-text-dark: #3e3e3e;
   /* Pokemon type colors */
   --color-poketype-normal--primary: 182, 182, 166;
   --color-poketype-normal--secondary: 182, 182, 166;

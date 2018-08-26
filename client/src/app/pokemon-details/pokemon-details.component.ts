@@ -5,6 +5,7 @@ import { map, switchMap } from 'rxjs/operators';
 import { Pokemon } from '../_types/pokemon';
 import { TypeMap } from '../_types/pokeType';
 import { getImageUri } from '../_helper/utils';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -17,7 +18,8 @@ export class PokemonDetailsComponent implements OnInit {
 
   constructor(
     private apiClient: ApiClientService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -53,7 +55,6 @@ export class PokemonDetailsComponent implements OnInit {
       const secondaryColor = `rgba(255, 255, 255, ${opacity})`;
       return `linear-gradient(${angle}deg, ${primaryColor}, ${secondaryColor})`;
     });
-    console.log(gradients);
     return gradients.join(', ');
   }
 
@@ -67,5 +68,14 @@ export class PokemonDetailsComponent implements OnInit {
       background: `rgb(var(--color-poketype-${typeStr}--primary))`,
       'box-shadow': `1px 1px 10px 1px rgba(var(--color-poketype-${typeStr}--primary), 0.34)`
     };
+  }
+
+  getPrimaryColorFragment() {
+    const primaryType = this.getType(this.pokemon.type[0]).en.toLowerCase();
+    return `var(--color-poketype-${primaryType}--primary)`;
+  }
+
+  onClose() {
+    this.location.back();
   }
 }

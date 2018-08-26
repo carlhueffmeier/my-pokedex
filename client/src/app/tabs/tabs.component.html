@@ -1,0 +1,5 @@
+<ul class="tab-bar">
+  <li *ngFor="let tab of tabs" (click)="selectTab(tab)" class="tab-bar__header" [ngClass]="{'active': tab.active}"
+    [ngStyle]="getStyles(tab)">{{tab.title}}</li>
+</ul>
+<ng-content></ng-content>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiClientService } from '../_services/api-client.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from '../_types/pokemon';
 
 @Component({
@@ -8,13 +7,10 @@ import { Pokemon } from '../_types/pokemon';
   styleUrls: ['./poke-grid.component.css']
 })
 export class PokeGridComponent implements OnInit {
+  @Input()
   pokelist: Pokemon[];
 
-  constructor(private apiClient: ApiClientService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.apiClient.getAllPokemon().subscribe(data => {
-      this.pokelist = [...data];
-    });
-  }
+  ngOnInit() {}
 }

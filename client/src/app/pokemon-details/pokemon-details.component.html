@@ -1,0 +1,37 @@
+<div *ngIf="pokemon && types"
+     class="pokemon-details"
+     [ngStyle]="{'background': getBackgroundGradient()}">
+  <div class="pokemon-details__image">
+    <img [src]="getImageUri()"
+         [alt]="pokemon.name.en">
+  </div>
+  <div class="pokemon-details__info">
+    <div class="pokemon-details__name">{{pokemon.name.en}}
+    </div>
+    <div class="pokemon-details__types">
+      <span *ngFor="let type of pokemon.type"
+            class="pokemon-details__type"
+            [ngStyle]="getTypeBoxStyle(type)">
+        {{getType(type).en}}
+      </span>
+    </div>
+    <div class="pokemon-details__description">
+      {{pokemon.description}}
+    </div>
+    <div class="pokemon-details__tab-container">
+      <div class="pokemon-details__tab-links">
+        <div class="tabs__link">Stats</div>
+        <div class="tabs__link">Evolutions</div>
+        <div class="tabs__link">Moves</div>
+      </div>
+      <div class="pokemon-details__tab-contents">
+        <div class="stats-row">HP {{pokemon.stats.HP}}</div>
+        <div class="stats-row">ATK {{pokemon.stats.ATK}}</div>
+        <div class="stats-row">DEF {{pokemon.stats.DEF}}</div>
+        <div class="stats-row">SATK {{pokemon.stats.SATK}}</div>
+        <div class="stats-row">SDEF {{pokemon.stats.SDEF}}</div>
+        <div class="stats-row">SPD {{pokemon.stats.SPD}}</div>
+      </div>
+    </div>
+  </div>
+</div>

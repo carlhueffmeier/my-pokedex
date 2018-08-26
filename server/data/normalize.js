@@ -1,9 +1,13 @@
 const fs = require('fs');
 const typeData = require('./base/types.json');
 const pokeData = require('./base/pokedex.json');
+const pokeDataWithDescriptions = require('./base/pokemon-v1.json');
 
 const types = normalizeTypesData(typeData);
 const typeIdByChineseName = createChineseDictionary(types);
+const descriptionByPokemonId = createDescriptionDictionary(
+  pokeDataWithDescriptions
+);
 const pokemon = normalizePokeData(pokeData);
 
 fs.writeFileSync('./types.json', JSON.stringify(types));
@@ -34,9 +38,24 @@ function createChineseDictionary(types) {
   );
 }
 
+function createDescriptionDictionary(data) {
+  return data.reduce(
+    (target, entry) => ({
+      ...target,
+      [entry.pkdx_id.toString().padStart(3, '0')]: entry.description
+    }),
+    {}
+  );
+}
+
+function sluggifyName(str) {
+  return str.replace(/[^\w\s]/gi, '').replace(/\s/gi, '_');
+}
+
 function normalizePokeData(data) {
-  const getImageUri = ({ id, ename }) => `/img/${id}${ename}.png`;
-  const getThumbnailUri = ({ id, ename }) => `/thumbnails/${id}${ename}.png`;
+  const getImageUri = ({ id, ename }) => `/img/${id}${sluggifyName(ename)}.png`;
+  const getThumbnailUri = ({ id, ename }) =>
+    `/thumbnails/${id}${sluggifyName(ename)}.png`;
   const getSpriteUri = ({ id }) => `/sprites/${id}MS.png`;
 
   return data.reduce(
@@ -49,7 +68,15 @@ function normalizePokeData(data) {
           jp: pokemon.jname,
           ch: pokemon.cname
         },
-        stats: { ...pokemon.base },
+        description: descriptionByPokemonId[pokemon.id],
+        stats: {
+          HP: pokemon.base['HP'],
+          ATK: pokemon.base['Attack'],
+          DEF: pokemon.base['Defense'],
+          SATK: pokemon.base['Sp.Atk'],
+          SDEF: pokemon.base['Sp.Def'],
+          SPD: pokemon.base['Speed']
+        },
         type: pokemon.type.map(cname => typeIdByChineseName[cname]),
         images: {
           large: getImageUri(pokemon),

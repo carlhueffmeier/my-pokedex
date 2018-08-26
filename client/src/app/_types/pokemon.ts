@@ -5,13 +5,14 @@ export class Pokemon {
     jp: string;
     ch: string;
   };
+  description: string;
   stats: {
-    Attack: number;
-    Defense: number;
     HP: number;
-    'Sp.Atk': number;
-    'Sp.Def': number;
-    Speed: number;
+    ATK: number;
+    DEF: number;
+    SATK: number;
+    SDEF: number;
+    SPD: number;
   };
   type: number[];
   images: {

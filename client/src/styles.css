@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Variables */
+:root {
+  /* Pokemon type colors */
+  --color-poketype-normal--primary: 182, 182, 166;
+  --color-poketype-normal--secondary: 182, 182, 166;
+  --color-poketype-fighting--primary: 166, 78, 63;
+  --color-poketype-fighting--secondary: 166, 78, 63;
+  --color-poketype-flying--primary: 85, 131, 220;
+  --color-poketype-flying--secondary: 85, 131, 220;
+  --color-poketype-poison--primary: 153, 71, 141;
+  --color-poketype-poison--secondary: 153, 71, 141;
+  --color-poketype-ground--primary: 213, 191, 106;
+  --color-poketype-ground--secondary: 213, 191, 106;
+  --color-poketype-rock--primary: 171, 161, 92;
+  --color-poketype-rock--secondary: 171, 161, 92;
+  --color-poketype-bug--primary: 152, 177, 16;
+  --color-poketype-bug--secondary: 152, 177, 16;
+  --color-poketype-ghost--primary: 93, 81, 170;
+  --color-poketype-ghost--secondary: 93, 81, 170;
+  --color-poketype-steel--primary: 168, 167, 184;
+  --color-poketype-steel--secondary: 168, 167, 184;
+  --color-poketype-fire--primary: 232, 69, 24;
+  --color-poketype-fire--secondary: 232, 69, 24;
+  --color-poketype-water--primary: 59, 122, 232;
+  --color-poketype-water--secondary: 59, 122, 232;
+  --color-poketype-grass--primary: 145, 233, 101;
+  --color-poketype-grass--secondary: 145, 233, 101;
+  --color-poketype-electric--primary: 236, 195, 52;
+  --color-poketype-electric--secondary: 236, 195, 52;
+  --color-poketype-psychic--primary: 247, 84, 151;
+  --color-poketype-psychic--secondary: 247, 84, 151;
+  --color-poketype-ice--primary: 125, 207, 241;
+  --color-poketype-ice--secondary: 125, 207, 241;
+  --color-poketype-dragon--primary: 115, 74, 221;
+  --color-poketype-dragon--secondary: 115, 74, 221;
+  --color-poketype-fairy--primary: 237, 149, 235;
+  --color-poketype-fairy--secondary: 237, 149, 235;
+  --color-poketype-dark--primary: 114, 86, 70;
+  --color-poketype-dark--secondary: 114, 86, 70;
+}

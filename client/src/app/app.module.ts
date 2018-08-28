@@ -13,10 +13,33 @@ import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tab/tab.component';
 import { PokemonStatsComponent } from './pokemon-stats/pokemon-stats.component';
 import { SvgIconComponent } from './svg-icon/svg-icon.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeferLoadDirective } from './defer-load.directive';
+import { PokeListItemComponent } from './poke-list-item/poke-list-item.component';
+import { InfiniteScrollDirective } from './infinite-scroll.directive';
 
 @NgModule({
-  declarations: [AppComponent, PokeGridComponent, PokeSpriteComponent, PokemonOverviewComponent, PokeListComponent, PokemonDetailsComponent, TabsComponent, TabComponent, PokemonStatsComponent, SvgIconComponent],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    PokeGridComponent,
+    PokeSpriteComponent,
+    PokemonOverviewComponent,
+    PokeListComponent,
+    PokemonDetailsComponent,
+    TabsComponent,
+    TabComponent,
+    PokemonStatsComponent,
+    SvgIconComponent,
+    DeferLoadDirective,
+    PokeListItemComponent,
+    InfiniteScrollDirective
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

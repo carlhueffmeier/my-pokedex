@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { getImageUri } from '../_helper/utils';
-import { Pokemon } from '../_types/pokemon';
+import { Pokemon, PokemonWithType } from '../_types/pokemon';
 import { TypeMap } from '../_types/pokeType';
 
 @Component({
@@ -13,21 +13,31 @@ export class PokeListComponent {
   pokelist: Pokemon[];
   @Input()
   types: TypeMap;
+  private maxVisibleIndex: number = 50;
 
   constructor() {}
 
-  getSpriteUri(pokemon: Pokemon): string {
-    return getImageUri(pokemon.images.sprite);
+  populatePokemonForView(pokemon: Pokemon): PokemonWithType {
+    return {
+      id: pokemon.id,
+      name: pokemon.name,
+      description: pokemon.description,
+      stats: pokemon.stats,
+      type: pokemon.type.map(id => this.types[id]),
+      imageSrc: <any>Object.entries(pokemon.images).reduce(
+        (imageUris, [key, path]) => ({
+          ...imageUris,
+          [key]: getImageUri(path)
+        }),
+        {}
+      )
+    };
   }
 
-  getType(typeId: string) {
-    return this.types[typeId];
-  }
-
-  getTypeSpecificClass(typeId) {
-    const type = this.getType(typeId);
-    if (type && type.en) {
-      return 'poke-list__type--' + type.en.toLowerCase();
-    }
+  extentList() {
+    this.maxVisibleIndex = Math.min(
+      this.pokelist.length,
+      this.maxVisibleIndex + 50
+    );
   }
 }

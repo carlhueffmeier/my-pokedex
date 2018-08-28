@@ -1,0 +1,58 @@
+.poke-list-item__link {
+  display: grid;
+  grid-template-columns: 7rem auto 8rem;
+  align-items: center;
+  height: 3.5rem;
+}
+
+.poke-list-item__link,
+.poke-list-item__link:link,
+.poke-list-item__link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.poke-list-item__sprite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fade-in {
+  to {
+    background-color: transparent;
+    opacity: 1;
+  }
+}
+
+.poke-list-item__row-title {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.poke-list-item__number {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.poke-list-item__types-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
+
+.poke-list-item__type {
+  padding: 2px 0;
+  border-radius: 15px;
+  color: white;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0.1rem;
+  text-shadow: 0px 0px 2px #333333a1;
+  width: 3.2rem;
+  text-align: center;
+}

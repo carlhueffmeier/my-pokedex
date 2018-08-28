@@ -1,23 +1,6 @@
-<ul class="poke-list">
-  <a class="poke-list__link"
-     *ngFor="let pokemon of pokelist"
-     [routerLink]="'/pokemon/' + pokemon.id">
-    <li class="poke-list__row">
-      <span class="poke-list__sprite">
-        <img [src]="getSpriteUri(pokemon)"
-             [alt]="pokemon.name.en">
-      </span>
-      <div class="poke-list__row-title">
-        <span class="poke-list__name">{{pokemon.name.en}}</span>
-        <span class="poke-list__number">{{pokemon.id}}</span>
-      </div>
-      <div class="poke-list__types-container">
-        <span *ngFor="let type of pokemon.type"
-              class="poke-list__type"
-              [ngStyle]="{'background-color': 'rgb(var(--color-poketype-' + getType(type).en.toLowerCase() + '--primary))'}">
-          {{getType(type).en}}
-        </span>
-      </div>
-    </li>
-  </a>
+<ul appInfiniteScroll [scrollCallback]="extentList.bind(this)" [scrollPercentage]="70"
+  class="poke-list">
+  <li *ngFor="let pokemon of pokelist.slice(0, maxVisibleIndex)" class="poke-list__row">
+    <app-poke-list-item [pokemon]="populatePokemonForView(pokemon)"></app-poke-list-item>
+  </li>
 </ul>
